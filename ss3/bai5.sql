@@ -1,0 +1,36 @@
+CREATE DATABASE cart_db;
+USE cart_db;
+
+CREATE TABLE CART_ITEMS (
+    CartItemID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    ProductID INT,
+    Quantity INT,
+    AddedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+UPDATE CART_ITEMS
+SET Quantity = Quantity + 1
+WHERE UserID = 1 
+  AND ProductID = 101;
+
+INSERT INTO CART_ITEMS (UserID, ProductID, Quantity)
+SELECT 1, 101, 1
+WHERE NOT EXISTS (
+    SELECT 1 FROM CART_ITEMS 
+    WHERE UserID = 1 AND ProductID = 101
+);
+
+SELECT ProductID, Quantity, AddedDate
+FROM CART_ITEMS
+WHERE UserID = 1;
+
+UPDATE CART_ITEMS
+SET Quantity = 5
+WHERE UserID = 1
+  AND ProductID = 101
+  AND 5 > 0; -- chặn số âm
+
+DELETE FROM CART_ITEMS
+WHERE UserID = 1
+  AND ProductID = 101;
