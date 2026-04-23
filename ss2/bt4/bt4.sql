@@ -1,0 +1,13 @@
+USE dtb_ss02;
+
+ALTER TABLE USERS 
+ADD COLUMN phone_moi VARCHAR(15);
+
+UPDATE USERS 
+SET phone_moi = LPAD(phone, 10, '0');
+
+ALTER TABLE USERS 
+DROP COLUMN phone;
+
+ALTER TABLE USERS 
+RENAME COLUMN phone_moi TO phone;
