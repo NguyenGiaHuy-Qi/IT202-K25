@@ -34,5 +34,5 @@ DELETE FROM Products
 WHERE product_id = 4;
 
 SELECT * FROM Products;
-SELECT Stock from Products
+SELECT * from Products
 where Stock > 15;
