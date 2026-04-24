@@ -16,7 +16,7 @@ constraint foreign key(category_id) references Categories(category_id)
 INSERT INTO Categories(category_name)
 values('Điện Tử'),
 ('Thời Trang');
-INSERT INTO Products(product_id,product_name,price,stock,category_id)
+INSERT INTO Products(product_name,price,stock,category_id)
 VALUES ('IPHONE 15',25000000,10,1),
 ('Samsung S23',20000000,5,1),
 ('Áo sơ mi nam',500000,50,2),
